@@ -7,17 +7,38 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%=request.getParameter("firstname") %>
-<%=request.getParameter("lastname") %>
+
+<%@ include file="Header.jsp" %>
+<center>
+
+<hr>
+<h1>Online Result System</h1>
+
 <br>
-<%=request.getParameter("loginid") %>
 <br>
-<%=request.getParameter("password") %>
 <br>
-<%=request.getParameter("address")%>
 <br>
-<%=request.getParameter("dob") %>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 
+<hr>
+
+<%@ include file="Footer.jsp" %>
+</center>
 </body>
 </html>

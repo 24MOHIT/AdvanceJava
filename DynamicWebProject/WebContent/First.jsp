@@ -7,14 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="Second.jsp">
+	<form action="FirstServlet" method="post" >
 		<table>
 			<tr>
 				<th>FirstName :</th>
 				<td><input type="text" name="firstname"
 					placeholder="Enter Firstname"></td>
 			</tr>
-
+			
 			<tr>
 				<th>lastName :</th>
 				<td><input type="text" name="lastname"
@@ -29,7 +29,7 @@
 
 			<tr>
 				<th>Password :</th>
-				<td><input type="text" name="password"
+				<td><input type="password" name="password"
 					placeholder="Enter Password"></td>
 			</tr>
 
@@ -41,12 +41,13 @@
 			
 			<tr>
 				<th>DOB :</th>
-				<td><input type="text" name="dob" placeholder="Enter DOB"></td>
+				<td><input type="date" name="dob" placeholder="Enter DOB"></td>
 			</tr>
-
+			
 			<tr>
 				<td><input type="submit"></td>
 			</tr>
+					
 		</table>
 	</form>
 </body>
