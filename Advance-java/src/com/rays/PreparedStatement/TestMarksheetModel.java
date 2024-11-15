@@ -9,7 +9,7 @@ public class TestMarksheetModel {
 //	    testAdd();
 //		testDelete();
 //		testUpdate();
-	search();
+	//search();
 
 	}
 
@@ -62,10 +62,10 @@ public class TestMarksheetModel {
 		MarksheetBean bean = new MarksheetBean();
 
 		bean.setRollno(113);
-		bean.setName("Green");
-		bean.setMaths(63);
+		bean.setName("Shrey");
+		bean.setMaths(78);
 		bean.setPhysics(65);
-		bean.setChemistry(49);
+		bean.setChemistry(63);
 
 		model.add(bean);
 

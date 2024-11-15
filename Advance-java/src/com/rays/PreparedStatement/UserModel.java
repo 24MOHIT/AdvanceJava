@@ -14,6 +14,27 @@ public class UserModel {
 
 	ResourceBundle rb=ResourceBundle.getBundle("com.rays.bundle.system");
 	
+	
+	public int nextPK() throws Exception {
+		
+		int pk=0;
+		
+		Class.forName(rb.getString("driver"));
+
+		Connection conn = DriverManager.getConnection(rb.getString("url"), rb.getString("username"), rb.getString("password"));
+
+		PreparedStatement pstmt = conn.prepareStatement("select max(id) from st_user");
+	
+		ResultSet rs =pstmt.executeQuery();
+		
+		while (rs.next()) {
+			pk=rs.getInt(1);
+			System.out.println("max id"+pk);
+		}
+		return pk+1;
+		
+	}
+	
 	public void add(UserBean bean) throws Exception {
 
 		Class.forName(rb.getString("driver"));
@@ -32,7 +53,7 @@ public class UserModel {
 				System.out.println("Loginid already exists");
 			}else {
 		
-			pstmt.setInt(1, bean.getId());
+			pstmt.setInt(1, nextPK());
 			pstmt.setString(2, bean.getFirstname());
 			pstmt.setString(3, bean.getLastname());
 			pstmt.setString(4, bean.getLoginid());
@@ -43,7 +64,7 @@ public class UserModel {
 			int i = pstmt.executeUpdate();
 			System.out.println("Data Add Successfully=" + i);
 			}
-		}
+	}
 	
 
 	public void delete(int id) throws Exception {
@@ -81,12 +102,13 @@ public class UserModel {
 		System.out.println("Recode Update=" + i);
 	}
 
-	public List search(UserBean bean) throws Exception {
+	public List search(UserBean bean, int pageNo , int pageSize ) throws Exception {
 
 		Class.forName("com.mysql.cj.jdbc.Driver");
 
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "root");
 
+		//using stringbuffer
 		StringBuffer sql=new StringBuffer("select * from st_user where 1=1 ");
 		
 		if (bean !=null) {
@@ -95,6 +117,26 @@ public class UserModel {
 			}
 		}
 		
+		if (bean !=null) {
+			if (bean.getLastname() !=null && bean.getLastname().length() > 0) {
+				sql.append(" and lastname like '"+bean.getLastname()+"'");
+			}
+		}
+		
+////		if (bean !=null) {
+////			if (bean.getLoginid() !=null && bean.getLoginid().length() > 0) {
+////				sql.ap
+////			}
+//			
+//		}
+		if (pageSize > 0) {
+
+			pageNo = (pageNo - 1) * pageSize;
+
+			sql.append(" limit " + pageNo + "," + pageSize);
+
+		}
+	
 		PreparedStatement pstmt = conn.prepareStatement(sql.toString());
 		
 		System.out.println("sql="+sql.toString());

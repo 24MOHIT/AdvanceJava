@@ -8,10 +8,10 @@ import java.util.List;
 public class TestUserModel {
 	public static void main(String[] args) throws Exception {
 
-		//		testadd();
-		testDelete();
+//		testadd();
+		//testDelete();
 		//testUpdate();
-		//testSearch();
+		testSearch();
 		//testAuthenticate();
 
 		
@@ -41,9 +41,10 @@ public class TestUserModel {
 		UserBean bean=new UserBean();
 
 		//search stringbuffer set name
-		bean.setFirstname("Shyam");
+//		bean.setFirstname("Shyam");
+//		bean.setLastname("Ras");
 		
-		List list=model.search(bean);
+		List list=model.search(bean, 1,5);
 		
 		Iterator it = list.iterator();
 		
@@ -81,7 +82,7 @@ public class TestUserModel {
 		
 		UserModel model= new UserModel();
 		
-		model.delete(3);
+		model.delete(4);
 		
 	}
 	public static void testadd() throws Exception{
@@ -92,13 +93,13 @@ public class TestUserModel {
 		
 		UserBean bean= new UserBean();
 		
-		bean.setId(3);
-		bean.setFirstname("Lakhan");
-		bean.setLastname("prajapat");
-		bean.setLoginid("lakhan@gmail.com");
-		bean.setPassword("lk123");
-		bean.setAddress("Barwani");
-		bean.setDob(sdf.parse("2002-04-02"));
+//		bean.setId(3);
+		bean.setFirstname("Sahi");
+		bean.setLastname("Jaat");
+		bean.setLoginid("sj@gmail.com");
+		bean.setPassword("sjj001");
+		bean.setAddress("Rau");
+		bean.setDob(sdf.parse("2001-01-20"));
 		
 		model.add(bean);
 	}
