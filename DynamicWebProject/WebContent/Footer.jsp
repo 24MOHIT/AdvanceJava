@@ -7,9 +7,27 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>This Is Footer</h3>
-<h3>All rights reserved by Rays Technologies, SunilOS Infotech Pvt Ltd Copyright © 2024
 
-</h3>
+<style type="text/css">
+#footer {
+	position: fixed;
+	left: 0;
+	width: 100%;
+	bottom: 0;
+	background-color: white;
+	color: black;
+	text-align: center;
+}
+</style>
+
+</head>
+<body>
+
+	<div id="footer">
+		<CENTER>
+			<hr>
+			<H3>&copy; Copyrights RAYS Technologies</H3>
+		</CENTER>
+	</div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package com.rays.Model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -98,14 +99,29 @@ public int nextPK() throws Exception {
 			if (bean.getFirstname() !=null && bean.getFirstname().length() > 0) {
 				sql.append(" and firstname like '"+bean.getFirstname()+"'");
 			}
-		}
+	
 		
-		if (bean !=null) {
 			if (bean.getLastname() !=null && bean.getLastname().length() > 0) {
 				sql.append(" and lastname like '"+bean.getLastname()+"'");
 			}
-		}
+
+			if (bean.getLoginid() != null && bean.getLoginid().length() > 0) {
+				sql.append(" and loginid like '"+bean.getLoginid()+"'");				
+			}
 		
+			if (bean.getAddress() != null && bean.getAddress().length() > 0) {
+				sql.append(" and address like '"+bean.getAddress()+"'");
+				
+			}
+			
+			if (bean.getDob() !=null && bean.getDob().getTime() > 0) {
+				
+			Date d=new Date(bean.getDob().getTime());
+			
+			sql.append("and dob like '"+ d + "'");
+				
+			}
+		}
 		if (pageSize > 0) {
 
 			pageNo = (pageNo - 1) * pageSize;
@@ -193,5 +209,32 @@ public int nextPK() throws Exception {
 	return bean;
 	}
 
-}
+	public UserBean findById(int id) throws Exception {
 
+		Connection conn = JDBCDataSource.getconnection();
+
+		PreparedStatement pstmt = conn.prepareStatement("select * from st_user where id = ?");
+
+		pstmt.setInt(1, id);
+
+		ResultSet rs = pstmt.executeQuery();
+
+		UserBean bean = null;
+
+		while (rs.next()) {
+
+			bean = new UserBean();
+
+			bean.setId(rs.getInt(1));
+			bean.setFirstname(rs.getString(2));
+			bean.setLastname(rs.getString(3));
+			bean.setLoginid(rs.getString(4));
+			bean.setPassword(rs.getString(5));
+			bean.setAddress(rs.getString(6));
+			bean.setDob(rs.getDate(7));
+
+		}
+
+		return bean;
+}
+}

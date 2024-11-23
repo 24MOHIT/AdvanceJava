@@ -11,32 +11,12 @@
 <%@ include file="Header.jsp" %>
 <center>
 
-<hr>
+
 <h1>Online Result System</h1>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
-<hr>
+
+
 
 <%@ include file="Footer.jsp" %>
 </center>

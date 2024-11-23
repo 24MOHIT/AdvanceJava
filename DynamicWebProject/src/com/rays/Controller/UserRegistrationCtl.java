@@ -3,7 +3,6 @@ package com.rays.Controller;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,6 +19,7 @@ public class UserRegistrationCtl extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 
 		response.sendRedirect("UserRegistrationView.jsp");
 	}
@@ -52,7 +52,7 @@ public class UserRegistrationCtl extends HttpServlet {
 			model.add(bean);
 			
 			request.setAttribute("msg", "User Registration Successfully");
-			
+						
 			RequestDispatcher rd=request.getRequestDispatcher("UserRegistrationView.jsp");
 			
 			rd.forward(request, response);

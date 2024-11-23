@@ -8,7 +8,7 @@
 </head>
 <body>
 
-
+<%@ include file="Header.jsp" %>
 	<center>
 		<form action="UserRegistrationCtl" method="post">
 
@@ -19,6 +19,8 @@
 			<span><%=msg %></span>
 			
 			<% } %>
+			
+			
 
 			<h1>User Registration</h1>
 			<table>
@@ -64,6 +66,10 @@
 
 			</table>
 		</form>
+		<br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br>
+		
+		<%@ include file="Footer.jsp" %>
 	</center>
 
 </body>
