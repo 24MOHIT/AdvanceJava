@@ -18,10 +18,17 @@
 		<h2><%="Hii," +userbean.getFirstname() %></h2>
 		<a href="UserCtl.do">Add User</a>|
 		<a href="UserListCtl.do">User List</a>|
+		
 		<a href="WelcomeCtl">Welcome</a>|
 		
 		<a href="MarksheetCtl.do">Add Marksheet</a>|
-		<a href="MarksheetListCtl.do">Marksheet List</a>
+		<a href="MarksheetListCtl.do">Marksheet List</a>|
+		
+		<a href="StudentCtl.do"> Add Student</a>|
+		<a href="StudentListCtl.do">Student List</a>|
+		
+		<a href="CollegeCtl.do">Add College</a>|
+		<a href="CollegeListCtl.do">College List</a>|
 		
 		<a href="LoginCtl?operation=logout">logout</a>
 	<%

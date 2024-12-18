@@ -18,7 +18,7 @@
 	
 
 	<% if(msg != null){ %>
-	<span style="color: green"> <%=msg%></span>
+	<span style="color: red"> <%=msg%></span>
 	<%} %>
 	
 	<% if(err != null){ %>

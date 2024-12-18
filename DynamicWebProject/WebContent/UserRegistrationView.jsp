@@ -8,19 +8,37 @@
 </head>
 <body>
 
-<%@ include file="Header.jsp" %>
+	<%@ include file="Header.jsp"%>
 	<center>
 		<form action="UserRegistrationCtl" method="post">
 
-			<%String msg= (String)request.getAttribute("msg"); %>
+			<%
+				String msg = (String) request.getAttribute("msg");
+			%>
+			<%
+				String err = (String) request.getAttribute("err");
+			%>
 
-			<%if (msg !=null) {%>
-			
-			<span><%=msg %></span>
-			
-			<% } %>
-			
-			
+			<%
+				if (msg != null) {
+			%>
+
+			<span style="color : green"><%=msg%></span>
+
+			<%
+				}
+			%>
+
+			<%
+				if (err != null) {
+			%>
+
+			<span style="color: red"><%=err%></span>
+			<%
+				}
+			%>
+
+
 
 			<h1>User Registration</h1>
 			<table>
@@ -66,10 +84,21 @@
 
 			</table>
 		</form>
-		<br><br><br><br><br><br><br>
-		<br><br><br><br><br><br><br>
-		
-		<%@ include file="Footer.jsp" %>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br> <br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+		<%@ include file="Footer.jsp"%>
 	</center>
 
 </body>

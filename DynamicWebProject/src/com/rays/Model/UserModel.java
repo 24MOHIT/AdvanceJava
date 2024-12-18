@@ -118,7 +118,7 @@ public int nextPK() throws Exception {
 				
 			Date d=new Date(bean.getDob().getTime());
 			
-			sql.append("and dob like '"+ d + "'");
+			sql.append(" and dob like '"+ d + "'");
 				
 			}
 		}

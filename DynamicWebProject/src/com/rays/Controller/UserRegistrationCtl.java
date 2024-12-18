@@ -19,7 +19,6 @@ public class UserRegistrationCtl extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
 
 		response.sendRedirect("UserRegistrationView.jsp");
 	}
@@ -49,14 +48,20 @@ public class UserRegistrationCtl extends HttpServlet {
 			bean.setAddress(address);
 			bean.setDob(sdf.parse(dob));
 
-			model.add(bean);
-			
-			request.setAttribute("msg", "User Registration Successfully");
-						
-			RequestDispatcher rd=request.getRequestDispatcher("UserRegistrationView.jsp");
-			
+			if (model.findByLoginId(loginid) != null) {
+
+				request.setAttribute("err", "LoginId Allready Exist...");
+			} else {
+
+				model.add(bean);
+				request.setAttribute("msg", "User Registration Successfully");
+
+			}
+
+			RequestDispatcher rd = request.getRequestDispatcher("UserRegistrationView.jsp");
+
 			rd.forward(request, response);
-			
+
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

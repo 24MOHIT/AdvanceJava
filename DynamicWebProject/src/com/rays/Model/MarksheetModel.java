@@ -105,22 +105,32 @@ public class MarksheetModel {
 		int i=pstmt.executeUpdate();
 		System.out.println("Data Upadate="+i);
 		}
-	public List search(MarksheetBean bean, int pagesize, int pageNo) throws Exception {
+	public List search(MarksheetBean bean, int pageNo, int pagesize) throws Exception {
 		
 		Connection conn=JDBCDataSource.getconnection();
 		
-		StringBuffer sql=new StringBuffer("select * from st_marksheet");
+		StringBuffer sql=new StringBuffer("select * from st_marksheet where 1=1");
+			
 		
 		if (bean != null) {
 			if (bean.getName() != null && bean.getName().length() > 0) {
-				sql.append("and name like '"+bean.getName()+ "'");				
+				sql.append(" and name like '"+bean.getName()+ "'");	
+				}
+			
+			if ( bean.getRollno() != 0 && bean.getRollno() > 0 ) {
+				sql.append(" and rollno = "+ bean.getRollno() + "");
 			}
+			
+			if (bean.getMaths() != 0 && bean.getMaths() > 0) {
+				sql.append(" and maths = "+ bean.getMaths() + "");
+			}
+			
 		}
 		
 		if (pagesize > 0) {
 			
 			pageNo= (pageNo - 1)* pagesize ;
-			sql.append("limit" + pageNo + ","+ pagesize);
+			sql.append(" limit " + pageNo + ","+ pagesize);
 		}
 		
 		PreparedStatement pstmt=conn.prepareStatement(sql.toString());
