@@ -52,9 +52,6 @@ public class UserBean {
 	}
 	public void setDob(Date dob) {
 		this.dob = dob;
-	}
-	
-	
-	
+	}	
 	}
 		

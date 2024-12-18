@@ -12,7 +12,7 @@ public class TestStudentModel {
 		testAdd();
 		//testUpdate();
 		//testDelete();
-		//testSearch();
+//		testSearch();
 	}
 
 	private static void testSearch() throws Exception {
@@ -69,13 +69,13 @@ public class TestStudentModel {
 		StudentModel model=new StudentModel();
 		StudentBean bean=new StudentBean();
 		
-		bean.setId(6);
-		bean.setFirstname("Mukesh");
+//		bean.setId(6);
+		bean.setFirstname("Sonu");
 		bean.setLastname("Kumhar");
 		bean.setCollagename("Niit");
-		bean.setEmailid("mk@gmail.com");
-		bean.setMobileno("9876543121");
-		bean.setDob(sdf.parse("2000-10-04"));
+		bean.setEmailid("sonu@gmail.com");
+		bean.setMobileno("9876500252");
+		bean.setDob(sdf.parse("2000-10-05"));
 		
 		model.add(bean);
 	}

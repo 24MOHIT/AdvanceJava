@@ -134,10 +134,5 @@ public class MarksheetModel {
 		return list;
 		}
 	
-//	public void MeritList() throws Exception {
-//		
-//		Class.forName("com.mysql.cj.jdbc.Driver");
-//		Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/result","root","root");
-//		PreparedStatement pstmt=conn.prepareStatement("");
-//	}
+
 }

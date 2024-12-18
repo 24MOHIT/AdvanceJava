@@ -35,7 +35,8 @@ public class TestUserModel {
 
 
 	private static void testSearch() throws Exception {
-				
+			
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		UserModel model=new UserModel();
 		
 		UserBean bean=new UserBean();
@@ -43,6 +44,10 @@ public class TestUserModel {
 		//search stringbuffer set name
 //		bean.setFirstname("Shyam");
 //		bean.setLastname("Ras");
+//		bean.setLoginid("ravi@gmail.com");
+//		bean.setAddress("Barwani");
+		bean.setDob(sdf.parse("2001-01-04"));
+		
 		
 		List list=model.search(bean, 1,5);
 		

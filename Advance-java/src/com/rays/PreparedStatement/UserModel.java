@@ -123,12 +123,28 @@ public class UserModel {
 			}
 		}
 		
-////		if (bean !=null) {
-////			if (bean.getLoginid() !=null && bean.getLoginid().length() > 0) {
-////				sql.ap
-////			}
-//			
-//		}
+		if (bean !=null) {
+			if (bean.getLoginid() !=null && bean.getLoginid().length() > 0) {
+				sql.append(" and loginid like '"+bean.getLoginid()+"'");
+				
+			}
+		}
+		
+		if (bean != null) {
+			if (bean.getAddress() !=null && bean.getAddress().length() > 0) {
+				sql.append(" and address like '"+bean.getAddress()+"'");				
+			}
+		}
+		if (bean != null) {
+			if (bean.getDob() !=null && bean.getDob().getTime() > 0) {
+				
+				Date d=new Date(bean.getDob().getTime());
+				
+				sql.append("and dob like '"+ d + "'");
+					
+				}
+		}
+		
 		if (pageSize > 0) {
 
 			pageNo = (pageNo - 1) * pageSize;

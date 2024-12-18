@@ -9,6 +9,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentModel {
+	
+	public int nextpk() throws Exception {
+	
+		int pk=0;
+		
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","root");
+		PreparedStatement pstmt=conn.prepareStatement(" select max(id) from st_student");
+		
+		ResultSet rs=pstmt.executeQuery();
+		
+		while (rs.next()) {
+			pk = rs.getInt(1);
+			System.out.println("max id="+pk);	
+		}
+		return pk+1;
+		
+	}
 
 	public void add(StudentBean bean) throws Exception {
 		
@@ -25,15 +43,15 @@ public class StudentModel {
 			System.out.println("ID Allready Exist");
 		}
 		
-//		System.out.println("Emailid is -"+bean.getEmailid());
-//		existbean=findByemailid(bean.getEmailid());
-//		
-//		if (existbean !=null) {
-//			System.out.println("Login Emailid Allready Exist ");
-//		}
+		System.out.println("Emailid is -"+bean.getEmailid());
+		existbean=findByemailid(bean.getEmailid());
+		
+		if (existbean !=null) {
+			System.out.println("Login Emailid Allready Exist ");
+		}
 	else {
 		
-		pstmt.setInt(1, bean.getId());
+		pstmt.setInt(1, nextpk());
 		pstmt.setString(2, bean.getFirstname());
 		pstmt.setString(3, bean.getLastname());
 		pstmt.setString(4, bean.getCollagename());
